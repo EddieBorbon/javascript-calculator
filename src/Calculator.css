@@ -1,0 +1,302 @@
+/* General Styles */
+body {
+    background: linear-gradient(135deg, #1a1a1a, #000);
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.calculator {
+    background: rgba(0, 0, 0, 0.8);
+    border: 5px solid #00ffcc;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 0 30px rgba(0, 255, 204, 0.8);
+    width: 400px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+}
+
+.display {
+    width: 95%;
+    height: 80px;
+    margin-bottom: 30px;
+    padding: 15px;
+    font-size: 32px;
+    text-align: right;
+    border: 2px solid #00ffcc;
+    border-radius: 15px;
+    background: rgba(0, 0, 0, 0.5);
+    color: #00ffcc;
+    box-shadow: inset 0 0 15px rgba(0, 255, 204, 0.8);
+    overflow: hidden;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* 4 columnas de igual ancho */
+    gap: 20px;
+    /* Espacio entre los botones */
+    grid-template-areas:
+        "percent ce clear backspace"
+        "inverse square sqrt divide"
+        "seven eight nine multiply"
+        "four five six subtract"
+        "one two three add"
+        "sign zero decimal equals";
+}
+
+button {
+    height: 70px;
+    font-size: 24px;
+    border: none;
+    border-radius: 15px;
+    background: linear-gradient(135deg, #00ffcc, #00ccff);
+    color: #000;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(0, 255, 204, 0.8);
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #00ccff, #00ffcc);
+    box-shadow: 0 0 25px rgba(0, 255, 204, 1);
+    transform: scale(1.1);
+}
+
+button:active {
+    transform: scale(0.95);
+    box-shadow: 0 0 10px rgba(0, 255, 204, 0.8);
+}
+
+/* Specific Button Styles */
+#clear {
+    background: linear-gradient(135deg, #ff0066, #ff6600);
+    color: #fff;
+}
+
+#clear:hover {
+    background: linear-gradient(135deg, #ff6600, #ff0066);
+    box-shadow: 0 0 25px rgba(255, 102, 0, 1);
+}
+
+#equals {
+    background: linear-gradient(135deg, #ff00cc, #cc00ff);
+    color: #fff;
+    grid-column: span 2;
+    /* Ocupa dos columnas */
+}
+
+#equals:hover {
+    background: linear-gradient(135deg, #cc00ff, #ff00cc);
+    box-shadow: 0 0 25px rgba(204, 0, 255, 1);
+}
+
+/* Operator Buttons */
+#add,
+#subtract,
+#multiply,
+#divide {
+    background: linear-gradient(135deg, #ffcc00, #ff9900);
+    color: #000;
+}
+
+#add:hover,
+#subtract:hover,
+#multiply:hover,
+#divide:hover {
+    background: linear-gradient(135deg, #ff9900, #ffcc00);
+    box-shadow: 0 0 25px rgba(255, 204, 0, 1);
+}
+
+/* Grid Areas for Buttons */
+#percent {
+    grid-area: percent;
+}
+
+#ce {
+    grid-area: ce;
+}
+
+#clear {
+    grid-area: clear;
+}
+
+#backspace {
+    grid-area: backspace;
+}
+
+#inverse {
+    grid-area: inverse;
+}
+
+#square {
+    grid-area: square;
+}
+
+#sqrt {
+    grid-area: sqrt;
+}
+
+#divide {
+    grid-area: divide;
+}
+
+#seven {
+    grid-area: seven;
+}
+
+#eight {
+    grid-area: eight;
+}
+
+#nine {
+    grid-area: nine;
+}
+
+#multiply {
+    grid-area: multiply;
+}
+
+#four {
+    grid-area: four;
+}
+
+#five {
+    grid-area: five;
+}
+
+#six {
+    grid-area: six;
+}
+
+#subtract {
+    grid-area: subtract;
+}
+
+#one {
+    grid-area: one;
+}
+
+#two {
+    grid-area: two;
+}
+
+#three {
+    grid-area: three;
+}
+
+#add {
+    grid-area: add;
+}
+
+#sign {
+    grid-area: sign;
+}
+
+#zero {
+    grid-area: zero;
+}
+
+#decimal {
+    grid-area: decimal;
+}
+
+#equals {
+    grid-area: equals;
+}
+
+/* Futuristic Title */
+h1 {
+    font-size: 48px;
+    color: #00ffcc;
+    text-shadow: 0 0 10px rgba(0, 255, 204, 0.8), 0 0 20px rgba(0, 255, 204, 0.8), 0 0 30px rgba(0, 255, 204, 0.8);
+    margin-bottom: 20px;
+}
+
+/* Neon Footer */
+footer {
+    font-size: 18px;
+    color: #00ffcc;
+    text-shadow: 0 0 10px rgba(0, 255, 204, 0.8), 0 0 20px rgba(0, 255, 204, 0.8), 0 0 30px rgba(0, 255, 204, 0.8);
+    margin-top: 20px;
+}
+
+/* History Container */
+.history {
+    width: 100%;
+    max-height: 150px;
+    margin-bottom: 20px;
+    padding: 10px;
+    font-size: 16px;
+    text-align: left;
+    border: 2px solid #00ffcc;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    color: #00ffcc;
+    box-shadow: inset 0 0 10px rgba(0, 255, 204, 0.8);
+    overflow-y: auto;
+    /* Scroll si el historial es largo */
+}
+
+.history div {
+    margin-bottom: 5px;
+}
+
+/* History Container */
+.history-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .history {
+    width: 70%;
+    max-height: 150px;
+    padding: 10px;
+    font-size: 16px;
+    text-align: left;
+    border: 2px solid #00ffcc;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    color: #00ffcc;
+    box-shadow: inset 0 0 10px rgba(0, 255, 204, 0.8);
+    overflow-y: auto; /* Scroll si el historial es largo */
+  }
+  
+  .history div {
+    margin-bottom: 5px;
+  }
+  
+  /* Clear History Button */
+  #clear-history {
+    background: linear-gradient(135deg, #ff0066, #ff6600);
+    color: #fff;
+    height: 60px;
+    font-size: 18px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(255, 102, 0, 0.8);
+    transition: all 0.3s ease;
+    margin-left: 10px;
+    width: 30%;
+  }
+  
+  #clear-history:hover {
+    background: linear-gradient(135deg, #ff6600, #ff0066);
+    box-shadow: 0 0 20px rgba(255, 102, 0, 1);
+    transform: scale(1.1);
+  }
+  
+  #clear-history:active {
+    transform: scale(0.95);
+    box-shadow: 0 0 10px rgba(255, 102, 0, 0.8);
+  }

@@ -1,9 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import './Calculator.css';
 
 const Calculator = () => {
   const [display, setDisplay] = useState('0');
   const [expression, setExpression] = useState('');
+  const audioRef = useRef(null); // Referencia para el audio
+
+  // Cargar el archivo de audio una sola vez
+  if (!audioRef.current) {
+    audioRef.current = new Audio('/click-sound.mp3');
+  }
 
   // Función para manejar los números
   const handleNumberClick = (num) => {
@@ -42,7 +48,8 @@ const Calculator = () => {
   // Función para manejar el botón "=" (Igual)
   const handleEqualsClick = () => {
     try {
-      const result = eval(expression); // Calcula el resultado
+      // Usar una biblioteca segura para evaluar expresiones
+      const result = eval(expression); // Cambiar por una biblioteca segura
       setDisplay(result.toString());
       setExpression(result.toString());
       playSound();
@@ -159,8 +166,7 @@ const Calculator = () => {
 
   // Función para reproducir sonido
   const playSound = () => {
-    const audio = new Audio('/click-sound.mp3'); 
-    audio.play();
+    audioRef.current.play();
   };
 
   return (
